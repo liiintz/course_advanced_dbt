@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_subscription_periods
+    description: This model processes monthly subscriptions data
+    columns:
+      - name: subscription_id
+        description: Unique identifier for the subscription
+        data_tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: Identifier for the user associated with the subscription
+        data_tests:
+          - not_null
+      - name: plan_name
+        description: Name of the subscription plan
+      - name: monthly_amount
+        description: Monthly pricing for the subscription
+        data_tests:
+          - not_null
+      - name: starts_at
+        description: Start date of the subscription
+        data_tests:
+          - not_null
+      - name: ends_at
+        description: End date of the subscription
+      - name: start_month
+        description: Start month of the subscription (truncated to interval)
+        data_tests:
+          - not_null
+      - name: end_month
+        description: End month of the subscription (with special cases handled)
